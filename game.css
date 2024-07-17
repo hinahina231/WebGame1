@@ -1,0 +1,110 @@
+body {
+  background-image: url("site_back.jpg");
+  background-size: 100%;
+  /*background-size: contain;*/
+  background-attachment: fixed;
+
+}
+
+.mybox {
+  border: 1px solid #f6ff7a;
+  /* 線の太さ・種類・色 */
+  border-radius: 5px;
+  padding: 10px;
+  /* 内側の余白 */
+  width: 200px;
+  position: relative;
+  margin: 0px 0px 0px 00px;
+  font-weight: 900;
+}
+
+.mybox:before {
+  background-color: rgba(255, 255, 255, 0.7);
+  /* 文字部分背景色・透過度 */
+  border-radius: 5px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 5px;
+  z-index: -1;
+}
+
+.mybox:after {
+  background: repeating-linear-gradient(-45deg, #e1ff5c, #e8ff63 5px, #fcf0f1 0, #fcf0f1 10px);
+  /* ストライプの色 */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+}
+
+a {
+  position: relative;
+  display: inline-block;
+  transition: .3s;
+}
+
+a::after {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  content: '';
+  width: 0;
+  height: 2px;
+  background-color: #31aae2;
+  transition: .3s;
+  transform: translateX(-50%);
+}
+
+a:hover::after {
+  width: 100%;
+}
+
+
+.mybox2 {
+  border: 1px solid hsl(204, 100%, 50%);
+  /* 線の太さ・種類・色 */
+  border-radius: 5px;
+  padding: 10px;
+  /* 内側の余白 */
+  width: 700px;
+  position: relative;
+  margin: 0px 0px 0px 00px;
+  font-weight: 900;
+  /*background-image: url(TW_back.png);
+  background-size: contain;*/
+}
+
+.mybox2:before {
+  background-color: rgba(255, 255, 255, 0.7);
+  /* 文字部分背景色・透過度 */
+  border-radius: 5px;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 5px;
+  z-index: -1;
+}
+
+.mybox2:after {
+  background: repeating-linear-gradient(-45deg, #e1ff5c, #e8ff63 5px, #fcf0f1 0, #fcf0f1 10px);
+  /* ストライプの色 */
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -2;
+}
