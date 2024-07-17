@@ -1,248 +1,119 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <title>Game</title>
-    <link rel="stylesheet" href="game.css">
-
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MTRXB2BPN8"></script>
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-MTRXB2BPN8');
-</script>
-
-<body>
-
-    <h1>Game</h1>
-
-
-    <center>
-
-        <font color="#000000">
-            <h3>自作ゲーム置き場</h3>
-        </font>
-
-        <div class="mybox">
-            <a href="http://ventovenezia.starfree.jp/CHUUNITHM CRYSTAL/index.html" margin: 0px 0px 0px
-                0px;>チュウニズムAIRもどき</a>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | CHUNITHM CRYSTAL</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+  </head>
+  <body>
+    <div id="unity-container" class="unity-desktop">
+      <canvas id="unity-canvas" width=1024 height=576></canvas>
+      <div id="unity-loading-bar">
+        <div id="unity-logo"></div>
+        <div id="unity-progress-bar-empty">
+          <div id="unity-progress-bar-full"></div>
         </div>
-        <div class="mybox">
-            <a href="http://ventovenezia.starfree.jp/Block Breaker1.1/index.html" margin: 50px 0px 0px
-                0px;>新・ブロック崩し</a><br>
-        </div>
-        <font color="white">
-            <h1>↓ ↓ ↓</h1>
-        </font>
-        <img src="170201a.png"><br><br><br>
+      </div>
+      <div id="unity-warning"> </div>
+      <div id="unity-footer">
+        <div id="unity-webgl-logo"></div>
+        <div id="unity-fullscreen-button"></div>
+        <div id="unity-build-title">CHUNITHM CRYSTAL</div>
+      </div>
+    </div>
+    <script>
+      var container = document.querySelector("#unity-container");
+      var canvas = document.querySelector("#unity-canvas");
+      var loadingBar = document.querySelector("#unity-loading-bar");
+      var progressBarFull = document.querySelector("#unity-progress-bar-full");
+      var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+      var warningBanner = document.querySelector("#unity-warning");
 
-        <div class="mybox2">
-            <h3>チュウニズムもどきの遊び方 AIR PLUS.ver</h3>
-            <br>
-            <font color="red">
-                <h3>もしゲームを始めようとしたときにロードが終わって<br>エラーが出たら、ブラウザのキャッシュを消去してください。<br>やり方はググってください。</h3>
-            </font><br><br>
-            選曲画面はたぶんわかるでしょう。<br>
-            マウスでクリックしてください。<br>AIR PLUSからキーボード矢印とスペースでも操作できます。<br>
-            上の「Hispeed」でノーツの流れてくる速度を変えられます。曲の速度は変わりません。<br>
-            無制限に変えられますが極端な値にすると早すぎたり、<br>
-            そもそもノーツが降ってこなかったりします。<br>
-            選曲画面には種類があり、<br>CHUNITHM<br>CHUNITHM AIR PLUS<br>CHUNITHM STAR<br>CHUNITHM AMAZON<br>CHUNITHM
-            CRYSTAL<br>CHUNITHM PARADISE<br>CHUNITHM NEW<br>CHUNITHM SUN<br>Beatmania
-            IIDX 12 HAPPYSKY<br>Beatmania IIDX 22 PENDUAL<br>Beatmania IIDX 31 EPOLIS<br>
-            が存在します。<br>
-            特定の曲をプレイすると移動(NEWとSUN以外)しますが、<br>移動したくない場合は上の隠し要素OFFを押してください。<br>
-            隠し要素OFFを押すことで、選曲、プレイ、リザルト画面が現在のバージョンになります。<br>
-            しかし、各楽曲固有の演出等が出なくなります。<br>
-            また、隠し楽曲二曲を無条件でプレイできるようになります。<br>
-            <font color="red">
-                <h3>一部の曲はBMS譜面形式を採用しており、<br><del>曲のBPMによって同じHispeedでもスピードが変化します。</del><br>
-                    ↑自動的に同じスピードに調整するようにしました。<br><br>
-                    また、曲の途中でBPMに連動してスピードが変化する曲もあります。<br>（↑の曲は最高BPMのスピードに調整しています）<br><br>
-                    曲の途中でキーボードの↑↓キーを押すと<br>Hispeedをそれぞれ0.5ずつ変えることができます。<br><br>
-                    また、←キーを押しながら↑↓どちらかを押すことで<br>Hispeedをそれぞれ1.0ごとに変えることができ、<br><br>
-                    →キーを押すと選曲した時点でのHispeedに戻ります。</h3>
-            </font>
-            曲はキーボードを使って演奏します。<br>
-            音ゲーの遊び方について一応書いておくと、<br>
-            ノーツが黄色い判定ラインに重なったタイミングで対応するキーを押してください。<br>
-            左からキーボードの「D,F J,K」に対応しています。<br>
-            赤いノーツはキーを押す、青いノーツはロングノーツで終点まで押しっぱなしにします。<br>
-            ロングノーツはAIRから追加されました。<br>
-            また、タッチ操作（マウスクリック）にも対応しています。<br>
-            <font color="red">
-                <h3>※音が出るので最大音量で楽しみましょう。</h3>
-            </font>
-            初心者をまったく考慮していない難易度設定と、多分みんな知らない曲を収録しています。<br>
-            最初のロードにくっそ時間がかかります。<br>動作はうーんって感じでしたが、だいぶ改善されました。<br>
-            最初は判定やムービーと曲がずれてましたが、今はピッタリ合うように改善されました。<br>
-            なので、判定がプロセカ並み（±50ms）だったのですが、<br>高精度タイマーを使うようにしたので、<br>
-            本家チュウニズムと同じ判定(±32ms)になりました。ごめんなさい。（？）<br>
-            しかし、相変わらず早MISSが出ない仕様のため連打してるだけで曲自体はクリアできます。<br><br>
-            なんか動作がおかしそうだったら<br>ブラウザのリロードボタンを押して再ロードしてみてください。<br>
-            直るかもしれません。<br>
-            <br>効果音は遅延が発生するため入れてません。<br>設定で入れることは出来ますがおすすめはしません。<br>
-            スコアの計算方法やクリアゲージの計算方法などは<br>すべて本家チュウニズム（PARADISE LOSTまで）と同じ方法で計算しています。<br>
-            なぜかはわかりませんが本家のレーティング計算システムを導入しています。<br>
-            本家よりちょうど四倍上がりやすく下がりやすいです。<br>
-            本家チュウニズムと同じ素材を使ってますが、<br>解析ROMとかではなく、youtubeに上がっている動画から取り出しました。<br>
-            まあ、でも多分アウトだけど...（汗）<br><br>
+      // Shows a temporary message banner/ribbon for a few seconds, or
+      // a permanent error message on top of the canvas if type=='error'.
+      // If type=='warning', a yellow highlight color is used.
+      // Modify or remove this function to customize the visually presented
+      // way that non-critical warnings and error messages are presented to the
+      // user.
+      function unityShowBanner(msg, type) {
+        function updateBannerVisibility() {
+          warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+        }
+        var div = document.createElement('div');
+        div.innerHTML = msg;
+        warningBanner.appendChild(div);
+        if (type == 'error') div.style = 'background: red; padding: 10px;';
+        else {
+          if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+          setTimeout(function() {
+            warningBanner.removeChild(div);
+            updateBannerVisibility();
+          }, 5000);
+        }
+        updateBannerVisibility();
+      }
 
-            AIR PLUSより、内部的に大型アップデート並みに改修されています。<br>
-            その中でも、これまで自己ベストはレート計算のために<br>内部に保存されていましたが、表示する機能を追加しました。<br>
-            わかりやすくなりました。<br>
-            また、セーブデータの保存方式を各端末内での保存から、<br>クラウドでの保存に変更しました。<br>
-            これにより、少なくともセーブデータ本体が消滅する<br>ということは起こらなくなりました。<br>
-            もし、セーブデータがあるはずなのに新規登録の画面が出るなどの不具合が発生した場合は<br>
-            作者に連絡してください。<br><br>
-            ちなみに、Chromeの場合F12を押してデバッグ情報を表示すると、<br>コンソールに色々情報が流れてます。<br>
-            内部処理の詳細や、譜面定数、レーティングベスト平均、<br>リーセント平均、その曲のレート等。<br>
-            有効活用してみてください。<br><br>
+      var buildUrl = "Build";
+      var loaderUrl = buildUrl + "/CHUNITHM CRYSTAL1.0.loader.js";
+      var config = {
+        dataUrl: buildUrl + "/CHUNITHM CRYSTAL1.0.data.gz",
+        frameworkUrl: buildUrl + "/CHUNITHM CRYSTAL1.0.framework.js.gz",
+        codeUrl: buildUrl + "/CHUNITHM CRYSTAL1.0.wasm.gz",
+        streamingAssetsUrl: "StreamingAssets",
+        companyName: "SAGA",
+        productName: "CHUNITHM CRYSTAL",
+        productVersion: "1.40",
+        showBanner: unityShowBanner,
+      };
 
+      // By default Unity keeps WebGL canvas render target size matched with
+      // the DOM size of the canvas element (scaled by window.devicePixelRatio)
+      // Set this to false if you want to decouple this synchronization from
+      // happening inside the engine, and you would instead like to size up
+      // the canvas DOM size and WebGL render target sizes yourself.
+      // config.matchWebGLToCanvasSize = false;
 
+      if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+        // Mobile device style: fill the whole browser client area with the game canvas:
 
-            細かい演出部分に気付くことができたら、私と一緒にチュウニズムをしましょう。<br>
-            チュウニズムへの愛が感じられたら<br>それだけでこのゲームのすべてを理解したと言えるでしょう。<br>
-            <!-- というか<a href="download/test.pdf" download>ここ</a>からダウンロードして開いたほうがいいです。<br>
-            ムービーが、めちゃくちゃきれいになります。<br>--><br><br>
-            このゲームは今回のために作りましたが、30時間は最低でもかかっています。<br>
-            よかったらたくさん遊んでやってください。泣きます。<br>
-            判定難もありUnityで音ゲーを二度と作りたくありません。<br>
-            ちなみに製作者はCHUNITHM CRYSTALから始め、現在虹レートです。<br>
-            <font color="red">
-                <h2>みんなも<a href="https://chunithm.sega.jp/">チュウニズム</a> をしましょう。（義務）</h2>
-            </font>
-            <br><br><br>
-            <h1>偉大なチュウニズム製作スタッフ達へ<br>敬礼(｀･ω･´)ゞ</h1>
-            <br><br><br>実は最近まで<a href="https://p.eagate.573.jp/game/2dx/31/">ビートマニア</a>
-            だけをしまくってたのは内緒。<br><br><br>
-            各楽曲固有の演出についてまとめました。<br><br>希望<br>
-            エンドマークに<del>絶望</del>と涙を添えて↓<br>
-            選曲画面が無印（初代）になります。<br><br>
-            その群青が愛しかったようだった↓<br>
-            選曲画面がAIRになります。<br>
-            また、ランクSSSでクリアするとSCREAM SQUADが出現。<br>
-            それをランクAAA以上でクリアするとハードゲージ冥が出現。<br>
-            それをクリアするとエンディングが見れ、選曲画面がHAPPYSKYになります。<br><br>
-            星色夜空↓<br>
-            選曲画面がSTARになります。<br><br>
-            愛して愛して愛して↓<br>
-            選曲画面がPENDUALになります。<br>
-            また固有の演出が楽曲中にあります。<br><br>
-            るるちゃんの自殺配信↓<br>
-            選曲画面がPENDUALになります。<br>
-            また、曲終了後にムービーを見れます。<br><br>
-            Oshama Scramble!↓<br>
-            選曲画面がCRYSTALになります。<br><br>
-            Paracelestia↓<br>
-            選曲画面がEPOLISになります。<br><br>
-            テリトリーバトル↓<br>
-            選曲画面がPARADISEになります。<br><br>
-            folern↓<br>
-            選曲画面がAMAZONになります。<br><br><br>
-            とこんな風にまとめましたが、実はコマンドを入力すると好きな選曲画面に行けます。<br>
-            というわけで一般公開コマンド一覧です<br><br>
+        var meta = document.createElement('meta');
+        meta.name = 'viewport';
+        meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+        document.getElementsByTagName('head')[0].appendChild(meta);
+        container.className = "unity-mobile";
+        canvas.className = "unity-mobile";
 
-            「chunithm」 →無印チュウニズムの選曲画面に移動<br>
-            「air」 →チュウニズムAIR PLUSの選曲画面に移動<br>
-            「star」 →チュウニズムSTARの選曲画面に移動<br>
-            「amazon」 →チュウニズムAMAZONの選曲画面に移動<br>
-            「crystal」 →チュウニズムCRYSTALの選曲画面に移動<br>
-            「paradise」 →チュウニズムPARADISEの選曲画面に移動<br>
-            「new」 →チュウニズムNEWの選曲画面に移動<br>
-            「sun」 →チュウニズムSUNの選曲画面に移動<br>
-            「pendual」 →Beatmania IIDX 22 PENDUALの選曲画面に移動<br>
-            「epolis」 →Beatmania IIDX 31 EPOLISの選曲画面に移動<br><br><br>
+        // To lower canvas resolution on mobile devices to gain some
+        // performance, uncomment the following line:
+        // config.devicePixelRatio = 1;
 
+        unityShowBanner('WebGL builds are not supported on mobile devices.');
+      } else {
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
-            コマンドの打ち方<br><br>
+        canvas.style.width = "1024px";
+        canvas.style.height = "576px";
+      }
 
-            <img src="MSAir.png"><br>
+      loadingBar.style.display = "block";
 
-            選曲画面がAIR PLUSの場合↑の画像のように<br>バージョンが書いてある数字を一回以上クリックします。<br>
-            そうすることで入力待機状態になります。<br>この状態でコマンドを半角小文字で入力したら、ENTERを押してください。<br><br>
-
-            <img src="MSStar.png"><br>
-            選曲画面がAIR PLUS以外の場合↑の画像のように<br>バージョン名が書いてある場所を一回以上クリックして、同じように入力してください。<br><br><br>
-
-            ソフランする曲一覧 ↓<br><br>
-            Halcyon<br>Kafig<br>Aeventyr<br>PUPA<br>Jack-the-Ripper<br>
-            デモーニッシュ<br>冥<br><br>
-            これらの曲はソフランに気をつけてください。<br>
-            ソフラン（曲の途中でスピードが変わる）曲は楽曲レーベルの右下にある<br>
-            BPMに「BPM:～〇〇〇」と書いてあります。<br>
-            〇〇〇はその曲の中で一番早くなる時のBPMです。<br>
-            スピードはBPMに書いてある最大BPMに合わせて調整されます。<br>
-            つまり、スピードが一番早くなる時に合わせて調整されます。<br>
-            なので、一部だけ速い曲だとずっと遅いスピードになるので気をつけてください。<br><br><br>
-
-            ↓から過去バージョンを遊ぶこともできます。<br><br><br>
-            <div class="mybox">
-                <a href="http://ventovenezia.starfree.jp/CHUNITHM AIR1.10/index.html" margin: 50px 0px 0px 0px;>AIR
-                    Ver1.10</a><br>
-            </div>
-            <div class="mybox">
-                <a href="http://ventovenezia.starfree.jp/CHUNITHM CRYSTAL PLUS/index.html" margin: 50px 0px 0px
-                    0px;>CRYSTAL PLUS Ver1.05</a><br>
-            </div>
-            <div class="mybox">
-                <a href="http://ventovenezia.starfree.jp/CHUUNITHM CRYSTAL OLD/index.html" margin: 50px 0px 0px
-                    0px;>CRYSTAL Ver1.03</a><br>
-            </div>
-            <div class="mybox">
-                <a href="http://ventovenezia.starfree.jp/CHUUNITHM CRYSTAL 1.0/index.html" margin: 50px 0px 0px
-                    0px;>CRYSTAL Ver.1.00</a><br>
-            </div>
-            <br><br><br>
-            <h3>ブロック崩しの遊び方</h3>
-            <br><br>
-            は、ゲーム画面に書いておいたので省きます。<br>
-            全部でステージが10ありますが、<del>ステージ9から難易度が10倍ずつくらい上がります。</del><br>
-            ↑ステージ9からの難易度を比較的人道的な難易度に調整しました。<br>
-            <font color="red">
-                <h3>※音は出ますがあまり流してほしくないけど音は出ます。（？）</h3>
-            </font>
-            ついでに二回当てないと壊れないブロックのグラフィックを変えて、<br>
-            何回当たったのかわかりやすくしました。<br><br>
-            比較的簡単になったと思いますが、作者はまだクリアしてません。<br>
-            惜しいとこまでは行けます。下にオリジナル版のリンクも貼っておくので、<br>
-            新バージョンをクリアしたらオリジナル版にチャレンジしてクリアしてください。<br>
-            クリア画面を写真にとって作者に送り付けてください。喜びます。<br>
-            写真に取るときは、pcのキーを押さないようにしてください。<br>
-            タイトル画面に戻ってしまいます。<br>
-            「congratulations!」の文字が出たら、<br>
-            そのままスマホとかで写真を撮ってください。<br>
-            ちなみに、オリジナル版と新バージョンはクリア画面の文字が少し違います。<br><br>
-
-
-
-            <div class="mybox">
-                <a href="http://ventovenezia.starfree.jp/Block Breaker/index.html" margin: 50px 0px 0px
-                    0px;>ブロック崩しVer.1.00</a><br>
-            </div>
-            <br>
-            これは２年くらい前にゲームを作るという目的で作ったものです。<br>
-            上の音ゲーよりかはだいぶまとも?に動きます。<br>
-            めちゃくちゃ難しいので誰かクリアしてください。（自分もクリアしたことない）<br>
-            <br>
-            上二つのゲームはUnityを使って作られていますが、オフラインのファイルから<br>
-            動作させることができないためサーバーにアップロードしたリンクを貼っています。<br>
-            サーバーにアップロードしたファイルはgamesフォルダーにあります。<br>
-            Unityのプロジェクトファイルもgamesの中のUnityに入れておきます。
-
-
-        </div>
-
-    </center>
-
-
-
-
-</body>
-
+      var script = document.createElement("script");
+      script.src = loaderUrl;
+      script.onload = () => {
+        createUnityInstance(canvas, config, (progress) => {
+          progressBarFull.style.width = 100 * progress + "%";
+        }).then((unityInstance) => {
+          loadingBar.style.display = "none";
+          fullscreenButton.onclick = () => {
+            unityInstance.SetFullscreen(1);
+          };
+        }).catch((message) => {
+          alert(message);
+        });
+      };
+      document.body.appendChild(script);
+    </script>
+  </body>
 </html>
